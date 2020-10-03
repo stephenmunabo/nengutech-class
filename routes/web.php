@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'AuthController@login')->name('login')->middleware('guest');
 Route::get('clear', 'HomeController@clearCache')->name('clear_cache');
 
 

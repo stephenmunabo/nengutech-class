@@ -56,59 +56,13 @@
                     <img src="{{asset('assets/images/teachify-lms-logo.svg')}}" alt="{{get_option('site_title')}}" />
                 @endif
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
 
             <div class="collapse navbar-collapse" id="mainNavbarContent">
-                <ul class="navbar-nav categories-nav-item-wrapper">
-                    <li class="nav-item nav-categories-item">
-                        <a class="nav-link browse-categories-nav-link" href="{{route('categories')}}"> <i class="la la-th-large"></i> {{__t('categories')}}</a>
 
-                        <div class="categories-menu">
-                            <ul class="categories-ul-first">
-                                <li>
-                                    <a href="{{route('categories')}}">
-                                        <i class="la la-th-list"></i> {{__t('all_categories')}}
-                                    </a>
-                                </li>
-                                @foreach($categories as $category)
-                                    <li>
-                                        <a href="{{route('category_view', $category->slug)}}">
-                                            <i class="la {{$category->icon_class}}"></i> {{$category->category_name}}
-
-                                            @if($category->sub_categories->count())
-                                                <i class="la la-angle-right"></i>
-                                            @endif
-                                        </a>
-                                        @if($category->sub_categories->count())
-                                            <ul class="level-sub">
-                                                @foreach($category->sub_categories as $subCategory)
-                                                    <li><a href="{{route('category_view', $subCategory->slug)}}">{{$subCategory->category_name}}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                    </li>
-
-                </ul>
-
-                <div class="header-search-wrap ml-2">
-                    <form action="{{route('courses')}}" class="form-inline " method="get">
-                        <input class="form-control" type="search" name="q" value="{{request('q')}}" placeholder="Search">
-                        <button class="btn my-2 my-sm-0 header-search-btn" type="submit"><i class="la la-search"></i></button>
-                    </form>
-                </div>
 
                 <ul class="navbar-nav main-nav-auth-profile-wrap">
 
-                    <li class="nav-item dropdown mini-cart-item">
-                        {!! view_template_part('template-part.minicart') !!}
-                    </li>
 
                     @if (Auth::guest())
                         <li class="nav-item mr-2 ml-2">

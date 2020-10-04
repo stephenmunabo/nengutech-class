@@ -80,7 +80,7 @@
 
                             @if($categories->count())
                                 <select name="topic_id" id="course_topic" class="form-control select2">
-                                    <option value="">{{__t('select_topic')}}</option>
+                                    <option value="1">{{__t('select_topic')}}</option>
                                 </select>
                             @endif
                             @if ($errors->has('topic_id'))
